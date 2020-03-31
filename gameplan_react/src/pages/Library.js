@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Library extends Component {
 
   
-  render (){
+  render () {
     return (
       <h1>Library Page</h1>
     )
