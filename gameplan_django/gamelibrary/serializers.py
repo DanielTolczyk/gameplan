@@ -1,7 +1,8 @@
 from .models import Game
+from builtins import object
 
 
-class GameSerializer():
+class GameSerializer(object):
     def __init__(self, body):
         self.body = body
 
@@ -10,18 +11,18 @@ class GameSerializer():
         output = {'games' : []}
 
         for game in self.body:
-            game_info = {
+            game_details = {
                 'id' : game.id,
                 'name' : game.name,
                 'description' : game.description,
                 'player_count' : game.player_count,
                 'length' : game.length,
             }
-            output['games'].append(game_info)
+            output['games'].append(game_details)
         return output
 
     @property
-    def game(self):
+    def game_detail(self):
         return {
             'id' : self.body.id,
             'name' : self.body.name,

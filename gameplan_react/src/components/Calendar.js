@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {GOOGLE_API_KEY, CALENDAR_ID}  from "../config.js";
+import { GOOGLE_API_KEY, CALENDAR_ID } from "../config.js";
 
 
 class Calendar extends React.Component {
@@ -14,13 +14,13 @@ class Calendar extends React.Component {
     this.getEvents();
   }
 
-  getEvents(){
+  getEvents() {
   }
 
-  
 
-  render(){
-    return(
+
+  render() {
+    return (
       <div>Calendar Component</div>
     )
   }

@@ -4,8 +4,8 @@ import Maps from '../components/Maps'
 
 class Planner extends Component {
 
-  
-  render (){
+
+  render() {
     return (
       <div>
         <h1>Planner Page</h1>

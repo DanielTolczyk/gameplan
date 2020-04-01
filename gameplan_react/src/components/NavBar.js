@@ -13,14 +13,14 @@ const NavBar = () => {
     <div>
       <Navbar color="light" light expand="md">
         <NavbarBrand href="/">GamePlan</NavbarBrand>
-          <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/library">Library</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/planner">Planner</NavLink>
-            </NavItem>
-          </Nav>
+        <Nav className="mr-auto" navbar>
+          <NavItem>
+            <NavLink href="/library">Library</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/planner">Planner</NavLink>
+          </NavItem>
+        </Nav>
       </Navbar>
     </div>
   )

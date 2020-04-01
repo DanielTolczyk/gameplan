@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { GOOGLE_API_KEY, CALENDAR_ID } from "../config.js";
 
 
-class Maps extends React.Component {
+class GameForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,9 +18,9 @@ class Maps extends React.Component {
 
   render() {
     return (
-      <div>Maps Component</div>
+      <div>Game Form Component</div>
     )
   }
 }
 
-export default Maps;
+export default GameForm;
