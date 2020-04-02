@@ -1,49 +1,56 @@
-const URL = "http://127.0.0.1:8000/"
+const URL = "http://localhost:8000/"
 
-const fetchAllGames = () => {
-  return fetch(`${URL}api/`)
-    .then((response) => response.json())
+
+const fetchAllGames = async () => {
+  let response = await fetch(`${URL}api/`);
+  let data = await response.json();
+  return data
 }
 
-const getGame = async (gameId) => {
+const fetchGameByID = async (gameId) => {
   let response = await fetch(`${URL}api/${gameId}`)
   let data = await response.json();
   return data
 }
 
 
-const createNewGame = async (name) => {
+
+const createNewGame = async (gameObject) => {
+  console.log('New Game', gameObject)
   const response = await fetch(`${URL}api/new`, {
     'headers': {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     'method': 'POST',
-    'body': JSON.stringify(name)
+    'body': JSON.stringify(gameObject)
   })
-  let data = await response.json()
 }
 
-const editGame = async (game_info) => {
-  const response = await fetch(`${URL}api/${game_info['id']}/edit/`, {
+const editGame = async (game_detail) => {
+  const response = await fetch(`${URL}api/${game_detail['id']}/edit`, {
     'headers': {
       'Content-Type': 'application/json'
     },
     'method': 'POST',
-    'body': JSON.stringify(game_info)
+    'body': JSON.stringify(game_detail)
   })
   const data = response.json()
   return data
 }
 
 const deleteGame = async (gameId) => {
-  const response = await fetch(`${URL}api/${gameId}/delete/`)
+  const response = await fetch(`${URL}api/${gameId}/delete`,{
+    'method': 'POST',
+    })
+  
 }
 
 
 export default {
   fetchAllGames,
+  fetchGameByID,
   createNewGame,
-  getGame,
   editGame,
   deleteGame,
 } 

@@ -16,7 +16,7 @@ class Library extends Component {
     DjangoAPI.fetchAllGames()
       .then((apiResponseJSON) => {
         this.setState({
-          games: apiResponseJSON
+          games: apiResponseJSON['games']
         })
       }
     )
@@ -25,8 +25,10 @@ class Library extends Component {
   render () {
     return (
       <div>
-        <h1>Library Page</h1>
+        <h1>Game Library</h1>
+        <br />
         <GameList games={this.state.games} />
+        <br />    
         <GameForm />
       </div>
     )

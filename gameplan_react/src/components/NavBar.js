@@ -15,10 +15,10 @@ const NavBar = () => {
         <NavbarBrand href="/">GamePlan</NavbarBrand>
         <Nav className="mr-auto" navbar>
           <NavItem>
-            <NavLink href="/library">Library</NavLink>
+            <NavLink href="/library">Game Library</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/planner">Planner</NavLink>
+            <NavLink href="/planner">Weekly Game Planner</NavLink>
           </NavItem>
         </Nav>
       </Navbar>

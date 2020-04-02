@@ -1,21 +1,38 @@
-import React, { Component } from 'react'
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
+import React from 'react'
+import {
+  Card, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap'
+import DjangoAPI from '../api/DjangoAPI';
 
-class GameList extends React.Component {
 
-  render() {
+const GameList = ({ games }) => {
+
+  const renderGamesList = () => {
+    let gamesListArr = []
+    games.map((game, id) => {
+      gamesListArr.push(
+        <Card key={id}>
+          <CardTitle>{game.name}</CardTitle>
+          <CardSubtitle>{game.length} {game.player_count}</CardSubtitle>
+          <CardBody>{game.description}</CardBody>
+          <Button key={id} onClick={() => DjangoAPI.deleteGame(id + 1)}>Delete</Button>
+        </Card>
+      )
+    })
+    return gamesListArr
+  }
+  if (games.length === 0) {
     return (
-      <div>
-        <BootstrapTable data={this.props.games}>
-          <TableHeaderColumn isKey dataField='id'> ID </TableHeaderColumn>
-          <TableHeaderColumn dataField='name'> Name </TableHeaderColumn>
-          <TableHeaderColumn dataField='player_count'> Number of Players </TableHeaderColumn>
-          <TableHeaderColumn dataField='length'> Length of Play </TableHeaderColumn>
-          <TableHeaderColumn dataField='description'> Description </TableHeaderColumn>
-        </BootstrapTable>
-      </div>
+      <div>Loading...</div>
     )
   }
-}
-
+  return (
+    <div>
+      {
+        renderGamesList()
+      }
+    </div>
+  );
+};
 export default GameList;

@@ -18,8 +18,9 @@ def game_detail(request, game_id):
     
 @csrf_exempt
 def new_game(request):
+    data = json.loads(request.body)
     if request.method == "POST":
-        form = GameForm(request.POST)
+        form = GameForm(data)
         if form.is_valid():
             game = form.save(commit=True)
             serialized_game = GameSerializer(game).game_detail
