@@ -9,7 +9,6 @@ class Planner extends Component {
     return (
       <div>
         <Calendar />
-        <Maps />
       </div>
     )
   }

@@ -1,34 +1,21 @@
 import React from 'react'
+import Kanye from '../images/KanyeWes-tgif.gif'
 
 class Nope extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      Country: "US",
-      Slug: "us",
-      NewConfirmed: 0,
-      TotalConfirmed: 0,
-      NewDeaths: 0,
-      TotalDeaths: 0,
-      NewRecovered: 0,
-      TotalRecovered: 0
+      quote: ""
     }
   }
 
   componentDidMount() {
-    fetch("")
+    fetch("https://api.kanye.rest")
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            Country: "US",
-            Slug: "us",
-            NewConfirmed: 0,
-            TotalConfirmed: 0,
-            NewDeaths: 0,
-            TotalDeaths: 0,
-            NewRecovered: 0,
-            TotalRecovered: 0
+            quote: result.quote
           });
         },
       )
@@ -41,6 +28,8 @@ class Nope extends React.Component {
         <br />
         <h2>That page does not exist...</h2>
         <br />
+        <img src={Kanye}></img>
+        <br/>
         <h1>{this.state.quote}</h1>
       </div>
     )

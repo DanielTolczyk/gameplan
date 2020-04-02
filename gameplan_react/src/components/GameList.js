@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Card, CardBody,
+  Card, CardText,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap'
 import DjangoAPI from '../api/DjangoAPI';
@@ -13,9 +13,10 @@ const GameList = ({ games }) => {
     games.map((game, id) => {
       gamesListArr.push(
         <Card key={id}>
-          <CardTitle>{game.name}</CardTitle>
-          <CardSubtitle>{game.length} {game.player_count}</CardSubtitle>
-          <CardBody>{game.description}</CardBody>
+          <CardTitle tag="h2">{game.name}</CardTitle>
+          <CardSubtitle>{game.length} / {game.player_count}</CardSubtitle>
+          <br />
+          <CardText>{game.description}</CardText>
           <Button key={id} onClick={() => DjangoAPI.deleteGame(id + 1)}>Delete</Button>
         </Card>
       )

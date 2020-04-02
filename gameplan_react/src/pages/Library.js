@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DjangoAPI from '../api/DjangoAPI'
 import GameForm from '../components/GameForm'
 import GameList from '../components/GameList'
+import { CardDeck } from 'reactstrap'
 
 
 class Library extends Component {
@@ -27,7 +28,9 @@ class Library extends Component {
       <div>
         <h1>Game Library</h1>
         <br />
-        <GameList games={this.state.games} />
+        <CardDeck>
+          <GameList games={this.state.games} />
+        </CardDeck>
         <br />    
         <GameForm />
       </div>
